@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- Navigation mois -->
+  <div class="calendar-header">
+    <button id="prev-month">&#8592;</button>
+    <h2 id="month-title"></h2>
+    <button id="next-month">&#8594;</button>
+  </div>
+
+  <!-- Habitudes -->
+  <div class="habits-bar">
+    <h3>Mes habitudes</h3>
+    <div id="habits-list"></div>
+    <button id="add-habit">+ Ajouter</button>
+  </div>
+
+  <!-- Grille du calendrier -->
+  <div class="calendar-grid" id="calendar-grid"></div>
+
+  <!-- Modale ajout habitude -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <h3>Nouvelle habitude</h3>
+      <div class="modal-field">
+        <label for="habit-name-input">Nom</label>
+        <input type="text" id="habit-name-input" placeholder="Ex: Faire du sport..." />
+      </div>
+      <div class="modal-field">
+        <label>Couleur</label>
+        <div id="color-picker" class="color-picker">
+          <span class="color-option selected" data-color="#6366f1" style="background:#6366f1"></span>
+          <span class="color-option" data-color="#ec4899" style="background:#ec4899"></span>
+          <span class="color-option" data-color="#f59e0b" style="background:#f59e0b"></span>
+          <span class="color-option" data-color="#10b981" style="background:#10b981"></span>
+          <span class="color-option" data-color="#3b82f6" style="background:#3b82f6"></span>
+          <span class="color-option" data-color="#ef4444" style="background:#ef4444"></span>
+          <span class="color-option" data-color="#8b5cf6" style="background:#8b5cf6"></span>
+          <span class="color-option" data-color="#14b8a6" style="background:#14b8a6"></span>
+        </div>
+      </div>
+      <div class="modal-field">
+        <label>Jours</label>
+        <div id="days-picker" class="days-picker">
+          <span class="day-option" data-day="0">Lun</span>
+          <span class="day-option" data-day="1">Mar</span>
+          <span class="day-option" data-day="2">Mer</span>
+          <span class="day-option" data-day="3">Jeu</span>
+          <span class="day-option" data-day="4">Ven</span>
+          <span class="day-option" data-day="5">Sam</span>
+          <span class="day-option" data-day="6">Dim</span>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="modal-cancel">Annuler</button>
+        <button id="modal-confirm">Ajouter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modale édition habitude -->
+  <div id="edit-modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <h3>Modifier l'habitude</h3>
+      <div class="modal-field">
+        <label for="edit-habit-name-input">Nom</label>
+        <input type="text" id="edit-habit-name-input" placeholder="Ex: Faire du sport..." />
+      </div>
+      <div class="modal-field">
+        <label>Couleur</label>
+        <div id="edit-color-picker" class="color-picker">
+          <span class="edit-color-option" data-color="#6366f1" style="background:#6366f1"></span>
+          <span class="edit-color-option" data-color="#ec4899" style="background:#ec4899"></span>
+          <span class="edit-color-option" data-color="#f59e0b" style="background:#f59e0b"></span>
+          <span class="edit-color-option" data-color="#10b981" style="background:#10b981"></span>
+          <span class="edit-color-option" data-color="#3b82f6" style="background:#3b82f6"></span>
+          <span class="edit-color-option" data-color="#ef4444" style="background:#ef4444"></span>
+          <span class="edit-color-option" data-color="#8b5cf6" style="background:#8b5cf6"></span>
+          <span class="edit-color-option" data-color="#14b8a6" style="background:#14b8a6"></span>
+        </div>
+      </div>
+      <div class="modal-field">
+        <label>Jours</label>
+        <div id="edit-days-picker" class="days-picker">
+          <span class="edit-day-option" data-day="0">Lun</span>
+          <span class="edit-day-option" data-day="1">Mar</span>
+          <span class="edit-day-option" data-day="2">Mer</span>
+          <span class="edit-day-option" data-day="3">Jeu</span>
+          <span class="edit-day-option" data-day="4">Ven</span>
+          <span class="edit-day-option" data-day="5">Sam</span>
+          <span class="edit-day-option" data-day="6">Dim</span>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="edit-modal-cancel">Annuler</button>
+        <button id="edit-modal-confirm">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
